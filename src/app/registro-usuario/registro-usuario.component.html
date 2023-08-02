@@ -1,0 +1,91 @@
+<form [formGroup]="newUsuarioForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3" >
+        <label for="nameInput" class="form-label" >Email</label>
+        <input type="email" class="form-control" id="nameInput" formControlName="email" placeholder="*********@gmail.com" email required>
+        <div *ngIf="email.invalid && (email.dirty || email.touched) " class="alert alert-danger">
+            <div *ngIf="email.errors?.['required']">
+                El email es requerido.
+            </div>
+            <div *ngIf="email.errors?.['email']">
+                Ingrese el email correctamente.
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Username</label>
+        <input type="text" class="form-control" id="nameInput" formControlName="username" placeholder="Ingrese su username" >
+        <div *ngIf="username.invalid && (username.dirty || username.touched) " class="alert alert-danger">
+            <div *ngIf="username.errors?.['required']">
+                El username es requerido.
+            </div>
+            <div *ngIf="username.errors?.['maxlength']">
+                El maximo de caracteres es 20. 
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nameInput" formControlName="nombre" placeholder="Ingrese su nombre" >
+        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched) " class="alert alert-danger">
+            <div *ngIf="nombre.errors?.['required']">
+                El nombre es requerido.
+            </div>
+            <div *ngIf="nombre.errors?.['maxlength']">
+                El maximo de caracteres es 20. 
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="nameInput" formControlName="apellido" placeholder="Ingrese su apellido" >
+        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched) " class="alert alert-danger">
+            <div *ngIf="apellido.errors?.['required']">
+                El apellido es requerido.
+            </div>
+            <div *ngIf="apellido.errors?.['maxlength']">
+                El maximo de caracteres es 20. 
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="nameInput"formControlName="contrasenia" placeholder="Ingrese su nueva contraseña">
+        <div *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched) " class="alert alert-danger">
+            <div *ngIf="contrasenia.errors?.['required']">
+                La contraseña es requerida.
+            </div>
+            <div *ngIf="contrasenia.errors?.['maxlength']">
+                El maximo de caracteres es 20. 
+            </div>
+            <div *ngIf="contrasenia.errors?.['minlength']">
+                El minimo de caracteres es 8. 
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Genero</label>
+        <select class="form-select" aria-label="Default select example" formControlName="genero" id="typeInput" >
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+        </select>
+        <div *ngIf="genero.invalid && (genero.dirty || genero.touched) " class="alert alert-danger">
+            <div *ngIf="genero.errors?.['required']">
+                El genero es requerido.
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nameInput" class="form-label">Categoria</label>
+        <input type="text" class="form-control" id="nameInput" formControlName="categoria" placeholder="Ingrese a que categoria pertecene">
+        <div *ngIf="categoria.invalid && (categoria.dirty || categoria.touched) " class="alert alert-danger">
+            <div *ngIf="categoria.errors?.['required']">
+                La categoria es requerida.
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Registrarme</button>       
+    </div>
+    <br>
+    
+</form>

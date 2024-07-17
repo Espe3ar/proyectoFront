@@ -20,9 +20,9 @@ export class AvisoService {
   getAvisoByTexto(texto: string): Aviso | undefined{
     return this.api.findByTexto(texto);
   }
-  createAviso(texto: string, usuario: Usuario): Observable<Aviso>{
-    let newAviso: Aviso = new Aviso(texto,usuario);
-    return this.api.createAviso(newAviso);
+  createAviso(texto: string): Observable<Aviso>{
+    let newAviso: Aviso = new Aviso(texto);
+    return this.api.addAviso(newAviso);
   }
   deleteAviso(aviso: Aviso): Observable<Aviso>{
     return this.api.deleteAviso(aviso);

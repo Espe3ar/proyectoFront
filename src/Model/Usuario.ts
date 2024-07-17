@@ -1,24 +1,34 @@
 
 import { Aviso } from "./Aviso";
-import { Role } from "./Role";
 export class Usuario{
-    nombre?: string;
-    apellido?:string;
-    email?:string;
-    contrasenia?:string;
-    categoria?: string;
-    genero?: string;
-    avisos?: Aviso[];
+    nombre?: string
+    apellido?:string
+    email?:string
+    contrasenia?:string
+    categoria?: string
+    genero?: string
+    avisos?: Aviso[]
     id?: string
     username?: string
-    role?: Role 
 
 
-    constructor(username: String, contrasenia:String,nombre: String, apellido: String, email: String, categoria:String, genero:String) {
+    constructor(username: string, contrasenia:string,nombre: string, apellido: string, email: string, categoria:string, genero:string) {
+        this.username=username;
+        this.contrasenia=contrasenia;
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.email=email;
+        this.categoria=categoria;
+        this.genero=genero;
+
+        this.avisos = [];
 
     }
-    addAviso(aviso: Aviso):void{
-        this.avisos?.push(aviso)
+    addAviso(aviso: Aviso): void {
+        if (!this.avisos) {
+            this.avisos = []; 
+        }
+        this.avisos.push(aviso);
     }
     
 }

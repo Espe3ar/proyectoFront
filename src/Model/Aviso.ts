@@ -1,10 +1,12 @@
-import{Usuario} from"./Usuario";
-export class Aviso{
+import { Usuario } from "./Usuario";
+
+export class Aviso {
+    id?: string;
     texto?: string;
-    usuario: Usuario;
-    id?: number
-    constructor(texto: string, usuario: Usuario){
-    this.texto=texto;
-    this.usuario=usuario;
+    propietario?: Usuario;
+  
+    constructor(texto: string, propietario?: Usuario) {
+      this.texto = texto;
+      this.propietario = propietario;
     }
-}
+  }

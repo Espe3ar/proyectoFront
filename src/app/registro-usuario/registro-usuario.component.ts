@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/Model/Usuario';
 import { UsuarioService } from '../servicios/usuario.service';
 
+
 @Component({
   selector: 'app-registro-usuario',
   templateUrl: './registro-usuario.component.html',

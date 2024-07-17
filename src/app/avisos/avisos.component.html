@@ -3,11 +3,12 @@
         <h1 C>Avisos</h1>
         <p class="fs-5 text-body-secondary">A continuación, encontrarán diversos avisos que detallan los diferentes partidos que están organizando nuestros usuarios. Cada aviso incluye información relevante sobre la fecha, hora, ubicación y el tipo de deporte que se jugará. Además, a nuestros usuarios se les ha pedido detalles sobre la cantidad de jugadores que se están buscando, el genero y de que categoria se necesita ser. </p>
     </div>
-    <input type="text" class="form-control" placeholder="Buscar aviso" [(ngModel)]="search"(ngModelChange)="filterAvisos()">
+
     <br>
+    
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
         <ng-container *ngFor="let a of avisos">
-            <app-aviso *ngIf="a.texto == (search)" [aviso]="a" ></app-aviso>
+            <app-aviso [aviso]="a" ></app-aviso>
         </ng-container>
     </div>
 
@@ -23,9 +24,10 @@
                         </div>
                         <div class="modal-body">
                             <form action="/url" method="post" [formGroup]="newAvisoForm" (ngSubmit)="onSubmit()"  >
-                                <div class="mb-3">
+                                <div class="mb-3">  
                                     <label for="nameInput" class="form-label">Aviso: </label>
-                                    <input type="textarea" class="form-control" id="nameInput" [formControl]="textoaviso" required="">
+                                    <input type="textarea" class="form-control" id="nameInput" formControlName="textoaviso"  required="">
+                                    
                                     <div *ngIf="textoaviso.invalid && (textoaviso.dirty || textoaviso.touched) " class="alert alert-danger">
                                         <div *ngIf="textoaviso.errors?.['required']">
                                             El aviso es requerido.

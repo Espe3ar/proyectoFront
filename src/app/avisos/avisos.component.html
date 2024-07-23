@@ -1,51 +1,57 @@
 <div>
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-        <h1 C>Avisos</h1>
-        <p class="fs-5 text-body-secondary">A continuación, encontrarán diversos avisos que detallan los diferentes partidos que están organizando nuestros usuarios. Cada aviso incluye información relevante sobre la fecha, hora, ubicación y el tipo de deporte que se jugará. Además, a nuestros usuarios se les ha pedido detalles sobre la cantidad de jugadores que se están buscando, el genero y de que categoria se necesita ser. </p>
-    </div>
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1>Avisos</h1>
+    <p class="fs-5 text-body-secondary">A continuación, encontrarán diversos avisos que detallan los diferentes partidos que están organizando nuestros usuarios. Cada aviso incluye información relevante sobre la fecha, hora, ubicación y el tipo de deporte que se jugará. Además, a nuestros usuarios se les ha pedido detalles sobre la cantidad de jugadores que se están buscando, el género y de qué categoría se necesita ser.</p>
+  </div>
 
-    <br>
-    
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <ng-container *ngFor="let a of avisos">
-            <app-aviso [aviso]="a" ></app-aviso>
-        </ng-container>
-    </div>
+  <br>
 
-    <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
-        <div class="d-grid gap-2">
-            <button class="btn btn-outline-secondary  btn btn-danger rounded-pill px-3 link-underline-dark link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Quiero crear mi propio aviso! </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Crear Aviso</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="/url" method="post" [formGroup]="newAvisoForm" (ngSubmit)="onSubmit()"  >
-                                <div class="mb-3">  
-                                    <label for="nameInput" class="form-label">Aviso: </label>
-                                    <input type="textarea" class="form-control" id="nameInput" formControlName="textoaviso"  required="">
-                                    
-                                    <div *ngIf="textoaviso.invalid && (textoaviso.dirty || textoaviso.touched) " class="alert alert-danger">
-                                        <div *ngIf="textoaviso.errors?.['required']">
-                                            El aviso es requerido.
-                                        </div>
-                                        
-                                    </div>
-                                    <p> <strong>Recuerda que el aviso debe especificar: fecha, hora, cantidad de jugadores y su numero de telefono para que se puedan contactar.</strong></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Crear Aviso</button>
-                                </div>
-                            </form>
-                        </div>
-                        
-                    </div>
-                </div>
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <ng-container *ngFor="let aviso of avisos">
+      <app-aviso [aviso]="aviso" [usuario]="usuario" (delete)="openDeleteAvisoModal(aviso)" (edit)="openEditAvisoModal(aviso)"></app-aviso>
+    </ng-container>
+  </div>
+
+  <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+    <div class="d-grid gap-2">
+      <button class="btn btn-outline-secondary btn-danger rounded-pill px-3 link-underline-dark link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">Quiero crear mi propio aviso!</button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Crear Aviso</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+              <form [formGroup]="newAvisoForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                  <label for="nameInput" class="form-label">Aviso:</label>
+                  <textarea class="form-control" id="nameInput" formControlName="textoaviso" rows="3" required></textarea>
+
+                  <div *ngIf="textoaviso.invalid && (textoaviso.dirty || textoaviso.touched)" class="alert alert-danger">
+                    <div *ngIf="textoaviso.errors?.['required']">
+                      El aviso es requerido.
+                    </div>
+                  </div>
+                  <p><strong>Recuerda que el aviso debe especificar: fecha, hora y cantidad de jugadores que se buscan.</strong></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Crear Aviso</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  <app-aviso-delete-modal   
+    (onConfirm)="handleDelete()"
+    (onCancel)="handleCancel()">
+  </app-aviso-delete-modal>
 </div>
+<app-aviso-edit-modal
+(onConfirm)="handleEdit()"
+(onCancel)="handleEditModalClose()">
+</app-aviso-edit-modal>

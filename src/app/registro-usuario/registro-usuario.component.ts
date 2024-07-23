@@ -16,6 +16,7 @@ newUsuarioForm= new FormGroup({
   nombre: new FormControl("", [Validators.required, Validators.maxLength(20)]),
   apellido: new FormControl("", [Validators.required, Validators.maxLength(20)]),
   contrasenia: new FormControl("", [Validators.required, Validators.minLength(8), Validators.maxLength(20)]),
+  telefono: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
   email: new FormControl("", [Validators.required, Validators.email]),
   categoria: new FormControl("", [Validators.required]),
   genero: new FormControl("", [Validators.required]),
@@ -32,8 +33,9 @@ onSubmit() : void{
   let categoria= this.newUsuarioForm.value.categoria!
   let genero= this.newUsuarioForm.value.genero!
   let username=this.newUsuarioForm.value.username!
+  let telefono= this.newUsuarioForm.value.telefono!
   //let usuario: Usuario= new Usuario(username,contrasenia,nombre,apellido,email,categoria,genero);
-  this.usuarioService.createUser(username,contrasenia,nombre,apellido,email,categoria,genero).subscribe((newUsuario)=>{
+  this.usuarioService.createUser(username,contrasenia,nombre,apellido,email,categoria,genero,telefono).subscribe((newUsuario)=>{
     console.log(newUsuario);
     this.usuarios.push(newUsuario)
   })
@@ -47,6 +49,6 @@ get contrasenia(): FormControl{return this.newUsuarioForm.controls['contrasenia'
 get categoria(): FormControl{return this.newUsuarioForm.controls['categoria']}
 get genero(): FormControl{return this.newUsuarioForm.controls['genero']}
 get username():FormControl{return this.newUsuarioForm.controls['username']}
-
+get telefono():FormControl{return this.newUsuarioForm.controls['telefono']}
 
 }

@@ -17,6 +17,9 @@ import{ HttpClientModule} from '@angular/common/http';
 import { CrearReservaComponent } from './reservas/crear-reserva/crear-reserva.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import { AvisoDeleteModalComponent } from './avisos/aviso-delete-modal/aviso-delete-modal.component';
+import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
+import { AvisoEditModalComponent } from './avisos/aviso-edit-modal/aviso-edit-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,10 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     NotFoundComponentComponent,
     CrearReservaComponent,
     LoginComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    AvisoDeleteModalComponent,
+    InfoUsuarioComponent,
+    AvisoEditModalComponent,
   ],
 
   imports: [
@@ -40,7 +46,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

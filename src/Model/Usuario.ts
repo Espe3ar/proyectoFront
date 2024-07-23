@@ -10,9 +10,10 @@ export class Usuario{
     avisos?: Aviso[]
     id?: string
     username?: string
+    telefono?:string
 
 
-    constructor(username: string, contrasenia:string,nombre: string, apellido: string, email: string, categoria:string, genero:string) {
+    constructor(username: string, contrasenia:string,nombre: string, apellido: string, email: string, categoria:string, genero:string, telefono:string) {
         this.username=username;
         this.contrasenia=contrasenia;
         this.nombre=nombre;
@@ -20,7 +21,7 @@ export class Usuario{
         this.email=email;
         this.categoria=categoria;
         this.genero=genero;
-
+        this.telefono=telefono;
         this.avisos = [];
 
     }

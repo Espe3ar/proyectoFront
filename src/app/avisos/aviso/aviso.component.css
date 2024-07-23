@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #007bff;
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card-details {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 15px;
+}
+
+.card-details li {
+    font-size: 14px;
+    color: #666;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+.edit-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button i {
+    color: darkblue; 
+}

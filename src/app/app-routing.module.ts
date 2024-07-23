@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
 
 const routes: Routes = [
 {path:'', component: InicioInfoComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
 {path:'reservas', component: ReservasComponent},
 {path:'login',component: LoginComponent},
 {path:'register', component: RegistroUsuarioComponent},
+{path:'infoUsuario', component:InfoUsuarioComponent},
 {path: '**', component: NotFoundComponentComponent}
 ];
 

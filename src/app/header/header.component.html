@@ -1,18 +1,23 @@
 <header class="text-center bg-body-secondary">
     <img src="assets/logointento.png" alt="logo" height="100" width="100">
-    <h1 class="text-danger display-5" c>Canchas Clubar</h1>          
-<nav>    
-    <nav class="nav nav-pills nav-fill bg-danger-subtle">
-        <a class="nav-link text-danger" aria-current="page" href="#" routerLink="info">Inicio</a>
-        <a class="nav-link text-danger" href="#" routerLink="avisos" > Avisos</a>
-        <a class="nav-link text-danger" href="#" routerLink="reservas" > Reservas</a>
-            <div style="padding: 0.3%;" >
-            <button type="button"  class="btn btn-outline-danger" routerLink="login">Iniciar Sesión</button>
-            
-            <button type="button"  class="btn btn-danger"  routerLink="register" >Registrarse</button>
-            
+    <h1 class="text-danger display-5">Canchas Clubar</h1>          
+    <nav>    
+      <nav class="nav nav-pills nav-fill bg-danger-subtle">
+        <a class="nav-link text-danger" aria-current="page" routerLink="info">Inicio</a>
+        <a class="nav-link text-danger" routerLink="avisos">Avisos</a>
+        <a class="nav-link text-danger" routerLink="reservas">Reservas</a>
+  
+        <div style="padding: 0.3%;">
+          <ng-container *ngIf="!isAuthenticated">
+            <button type="button" class="btn btn-outline-danger" routerLink="login">Iniciar Sesión</button>
+            <button type="button" class="btn btn-danger" routerLink="register">Registrarse</button>
+          </ng-container>
+  
+          <ng-container *ngIf="isAuthenticated">
+            <button type="button" class="btn btn-outline-danger" routerLink="infoUsuario">Info Usuario</button>
+            <button type="button" class="btn btn-outline-danger" (click)="logout()">Cerrar Sesión</button>
+          </ng-container>
         </div>
+      </nav>
     </nav>
-</nav>
-</header>
-
+  </header>

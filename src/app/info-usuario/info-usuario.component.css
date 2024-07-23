@@ -1,0 +1,43 @@
+.user-profile {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-header h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .profile-header .email {
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .profile-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detail {
+    margin-bottom: 10px;
+  }
+  
+  .detail label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .detail p {
+    margin: 0;
+    color: #666;
+  }

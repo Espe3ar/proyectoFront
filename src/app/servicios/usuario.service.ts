@@ -12,8 +12,8 @@ export class UsuarioService {
 
   constructor(private api: ApiService) { }
 
-  createUser(username: string, contrasenia: string, nombre: string, apellido: string, email: string, categoria: string, genero: string): Observable<Usuario> {
-    let newUsuario: Usuario = new Usuario(username, contrasenia, nombre, apellido, email, categoria, genero);
+  createUser(username: string, contrasenia: string, nombre: string, apellido: string, email: string, categoria: string, genero: string, telefono: string): Observable<Usuario> {
+    let newUsuario: Usuario = new Usuario(username, contrasenia, nombre, apellido, email, categoria, genero,telefono);
     return this.api.createUsuario(newUsuario);
   }
 
@@ -28,20 +28,6 @@ export class UsuarioService {
   getUserInfo(): Observable<Usuario> {
     return this.api.getUserInfo();
   }
-
-  createAviso(usuario: Usuario, aviso: string): Observable<Aviso> {
-    let newAviso: Aviso = new Aviso(aviso,usuario);
-    return this.api.addAviso(newAviso);
-  }
   
-
-  addAviso(usuario: Usuario, aviso: Aviso): void {
-    if (!usuario.avisos) {
-      usuario.avisos = [];
-    }
-    usuario.avisos.push(aviso);
-
-  }
-
 
 }

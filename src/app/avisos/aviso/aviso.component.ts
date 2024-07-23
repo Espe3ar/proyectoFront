@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Usuario } from 'src/Model/Usuario';
-import { AvisoService } from 'src/app/servicios/aviso.service';
 import { Aviso } from 'src/Model/Aviso';
 
 @Component({
@@ -8,14 +7,23 @@ import { Aviso } from 'src/Model/Aviso';
   templateUrl: './aviso.component.html',
   styleUrls: ['./aviso.component.css']
 })
-export class AvisoComponent {
-  @Input() aviso: any;
+export class AvisoComponent implements OnInit {
+  @Input() aviso!: Aviso;
   @Input() usuario!: Usuario;
+  @Output() delete = new EventEmitter<Aviso>();
+  @Output() edit = new EventEmitter<Aviso>();
+  constructor() {}
 
-  constructor() {
-    
-  }
   ngOnInit(): void {
+    console.log('Aviso:', this.aviso);
+    console.log('Usuario:', this.usuario);
   }
 
+  deleteAviso(): void {
+    this.delete.emit(this.aviso);
+  }
+
+  editAviso(): void {
+    this.edit.emit(this.aviso);
+  }
 }

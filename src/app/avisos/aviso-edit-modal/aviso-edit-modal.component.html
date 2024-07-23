@@ -1,0 +1,24 @@
+<div class="custom-modal" *ngIf="isVisible">
+    <div class="custom-modal-content">
+      <div class="modal-header">
+        <h2>Editar Aviso</h2>
+        <span class="close-button" (click)="cancel()">&times;</span>
+      </div>
+      <form [formGroup]="editAvisoForm" (ngSubmit)="confirm()">
+        <div class="form-group">
+          <label for="textoaviso">Texto del Aviso:</label>
+          <textarea id="textoaviso" formControlName="textoaviso" class="form-control"></textarea>
+          <div *ngIf="editAvisoForm.controls.textoaviso.invalid && (editAvisoForm.controls.textoaviso.dirty || editAvisoForm.controls.textoaviso.touched)" class="alert alert-danger">
+            <div *ngIf="editAvisoForm.controls.textoaviso.errors?.['required']">
+              El aviso es requerido.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="cancel()">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

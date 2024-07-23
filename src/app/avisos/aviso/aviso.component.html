@@ -1,15 +1,26 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Aviso</title>
+    <link rel="stylesheet" href="aviso.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 <div class="col">
-    <div class="card mb-4 rounded-3 shadow-sm">
-        <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">{{usuario.nombre}}</h4>
+    <div class="card mb-4 rounded-3 shadow-sm position-relative">
+        <div class="card-header position-relative">
+            <h4 class="my-0 fw-normal">{{ usuario.username }}</h4>
+            <button type="button" class="edit-button" (click)="editAviso()">
+                <i class="fas fa-pencil-alt"></i>
+            </button>
         </div>
         <div class="card-body">
-            <p> {{ aviso.texto }}</p>
-        <ul class="list-unstyled mt-3 mb-4">
-            <li><strong>Categoria: </strong> {{usuario.categoria }} </li>
-            <li><strong>Genero: </strong>{{usuario.genero}}</li>
-        </ul>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary btn-outline-danger"  >Borrar Anuncio</button>
+            <p class="fs-4">{{ aviso.texto }}</p>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li><strong>Categoria: </strong> {{ usuario.categoria }}</li>
+                <li><strong>Genero: </strong> {{ usuario.genero }}</li>
+                <li><strong>Telefono: </strong> {{ usuario.telefono }}</li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary btn-outline-danger" (click)="deleteAviso()">Borrar Anuncio</button>
         </div>
     </div>
 </div>

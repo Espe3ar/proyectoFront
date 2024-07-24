@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Aviso } from 'src/Model/Aviso';
 import { ResponseLoginDTO } from '../dto/ResponseLoginDTO';
 import { Usuario } from 'src/Model/Usuario';
+import { Reserva } from 'src/Model/Reserva';
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,17 @@ export class ApiService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<Aviso>(`${this._url}aviso/update/${aviso.id}`, aviso, { headers, ...this.getAuthHeader() });
   }
-  
+  getAllReservas(): Observable<Reserva[]> {
+    return this.http.get<Reserva[]>(this._url + 'reserva', this.getAuthHeader());
+  }
+
+  deleteReserva(reserva: Reserva): Observable<any> {
+    return this.http.delete(this._url+ 'reserva/delete/' + reserva.id, this.getAuthHeader());
+  }
+
+  addReserva(reserva: Reserva): Observable<Reserva> {
+    return this.http.post<Reserva>(this._url + 'reserva/create', reserva, this.getAuthHeader());
+  }
+
+
 }

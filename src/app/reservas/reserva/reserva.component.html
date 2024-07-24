@@ -1,31 +1,19 @@
-<div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary-emphasis">Tennis</strong>
-          <h3 class="mb-0">Reserva</h3>
-          <div class="mb-1 text-body-secondary">Nov 12</div>
-          <p class="card-text mb-auto">5pm to 6pm</p>
-          <button class="btn btn-outline-secondary" type="button">Eliminar reserva</button>
+<div class="row mb-3">
+  <div class="col-md-8">
+    <div class="card border rounded overflow-hidden shadow-lg h-100">
+      <div class="position-relative">
+        <img src="assets/paletadetennis.jpg" class="card-img-top" alt="Imagen de la cancha" style="height: 250px; object-fit: cover;">
+        <div class="position-absolute top-0 start-0 bg-primary text-white p-3 rounded-end" style="width: 100%; height: 100px; background-color: rgba(0, 123, 255, 0.7);">
+          <h5 class="card-title mb-0">Reserva</h5>
+          <small class="d-block">Número de Cancha: {{ reserva.canchaReservada }}</small>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img src="assets/paletadetennis.jpg" width="250" height="230"  role="img"  preserveAspectRatio="xMidYMid slice" >>
-        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-text mb-1">{{ reserva.fechayHoraEntrada | date:'MMM d, yyyy' }}</p>
+        <p class="card-text mb-1"><strong>Horario de Entrada:</strong> {{ reserva.fechayHoraEntrada | date:'HH:mm' }}</p>
+        <p class="card-text mb-3"><strong>Horario de Salida:</strong> {{ reserva.fechayHoraSalida | date:'HH:mm' }}</p>
+        <button class="btn btn-danger" type="button" (click)="onDelete()">Eliminar Reserva</button>
       </div>
     </div>
-    <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary-emphasis">Paddle</strong>
-            <h3 class="mb-0">Reserva</h3>
-            <div class="mb-1 text-body-secondary">Nov 13</div>
-            <p class="card-text mb-auto">5pm to 6pm</p>
-            <button class="btn btn-outline-secondary" type="button">Eliminar reserva</button>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img src="assets/paletapaddle.jpg" width="250" height="230" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">>
-          </div>
-        </div>
-      </div>
-    
   </div>
+</div>

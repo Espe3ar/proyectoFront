@@ -20,6 +20,7 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
 import { AvisoDeleteModalComponent } from './avisos/aviso-delete-modal/aviso-delete-modal.component';
 import { InfoUsuarioComponent } from './info-usuario/info-usuario.component';
 import { AvisoEditModalComponent } from './avisos/aviso-edit-modal/aviso-edit-modal.component';
+import { ReservaDeleteModalComponent } from './reservas/reserva-delete-modal/reserva-delete-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { AvisoEditModalComponent } from './avisos/aviso-edit-modal/aviso-edit-mo
     AvisoDeleteModalComponent,
     InfoUsuarioComponent,
     AvisoEditModalComponent,
+    ReservaDeleteModalComponent,
   ],
 
   imports: [
